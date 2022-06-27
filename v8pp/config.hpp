@@ -2,24 +2,23 @@
 #define V8PP_CONFIG_HPP_INCLUDED
 
 /// v8pp library version
-#define V8PP_VERSION "@PROJECT_VERSION@"
+#define V8PP_VERSION "1.8.1"
 
 /// v8::Isolate data slot number, used in v8pp for shared data,
 /// if you want to avoid using v8 isolate data slots at all, 
 //  use V8PP_DONT_USE_ISOLATE_DATA_SLOT flag when compiling. 
 #if !defined(V8PP_ISOLATE_DATA_SLOT) && !defined(V8PP_DONT_USE_ISOLATE_DATA_SLOT)
-#define V8PP_ISOLATE_DATA_SLOT @V8PP_ISOLATE_DATA_SLOT@
+#define V8PP_ISOLATE_DATA_SLOT 0
 #endif
-
 
 /// v8pp plugin initialization procedure name
 #if !defined(V8PP_PLUGIN_INIT_PROC_NAME)
-#define V8PP_PLUGIN_INIT_PROC_NAME @V8PP_PLUGIN_INIT_PROC_NAME@
+#define V8PP_PLUGIN_INIT_PROC_NAME v8pp_module_init
 #endif
 
 /// v8pp plugin filename suffix
 #if !defined(V8PP_PLUGIN_SUFFIX)
-#define V8PP_PLUGIN_SUFFIX "@V8PP_PLUGIN_SUFFIX@"
+#define V8PP_PLUGIN_SUFFIX ".dll"
 #endif
 
 #if defined(_MSC_VER)
@@ -37,7 +36,7 @@
 v8::Local<v8::Value> V8PP_PLUGIN_INIT_PROC_NAME(isolate)
 
 #ifndef V8PP_HEADER_ONLY
-#define V8PP_HEADER_ONLY @V8PP_HEADER_ONLY@
+#define V8PP_HEADER_ONLY 1
 #endif
 
 #if V8PP_HEADER_ONLY
@@ -47,7 +46,7 @@ v8::Local<v8::Value> V8PP_PLUGIN_INIT_PROC_NAME(isolate)
 #endif
 
 #if !defined(V8PP_USE_STD_STRING_VIEW)
-#define V8PP_USE_STD_STRING_VIEW @V8PP_USE_STD_STRING_VIEW@
+#define V8PP_USE_STD_STRING_VIEW 0
 #endif
 
 #define V8PP_STRINGIZE(s)  V8PP_STRINGIZE0(s)
