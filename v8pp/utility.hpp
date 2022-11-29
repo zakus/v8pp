@@ -536,8 +536,8 @@ type_info type_id()
 {
 #if defined(_MSC_VER) && !defined(__clang__)
 	string_view name = __FUNCSIG__;
-	const std::initializer_list<string_view> all_prefixes{ "type_id<", "struct ", "class " };
-	const std::initializer_list<string_view> any_suffixes{ ">" };
+	const std::initializer_list<string_view> all_prefixes{ "class v8pp::detail::type_info __cdecl v8pp::detail::type_id<"};
+	const std::initializer_list<string_view> any_suffixes{ ">(void)" };
 #elif defined(__clang__) || defined(__GNUC__)
 	string_view name = __PRETTY_FUNCTION__;
 	const std::initializer_list<string_view> all_prefixes{ "T = " };
