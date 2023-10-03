@@ -2,10 +2,10 @@
 #define V8PP_CONFIG_HPP_INCLUDED
 
 /// v8pp library version
-#define V8PP_VERSION "@PROJECT_VERSION@"
-#define V8PP_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
-#define V8PP_VERSION_MINOR @PROJECT_VERSION_MINOR@
-#define V8PP_VERSION_PATCH @PROJECT_VERSION_PATCH@
+#define V8PP_VERSION "2.1.0"
+#define V8PP_VERSION_MAJOR 2
+#define V8PP_VERSION_MINOR 1
+#define V8PP_VERSION_PATCH 0
 
 /// v8::Isolate data slot number, used in v8pp for shared data,
 /// if you want to avoid using v8 isolate data slots at all, 
@@ -13,17 +13,17 @@
 /// NOTE: When running under Electron, all V8 slots are taken 
 /// by other components
 #if !defined(V8PP_ISOLATE_DATA_SLOT) && !defined(V8PP_DONT_USE_ISOLATE_DATA_SLOT)
-#define V8PP_ISOLATE_DATA_SLOT @V8PP_ISOLATE_DATA_SLOT@
+#define V8PP_ISOLATE_DATA_SLOT 0
 #endif
 
 /// v8pp plugin initialization procedure name
 #if !defined(V8PP_PLUGIN_INIT_PROC_NAME)
-#define V8PP_PLUGIN_INIT_PROC_NAME @V8PP_PLUGIN_INIT_PROC_NAME@
+#define V8PP_PLUGIN_INIT_PROC_NAME v8pp_module_init
 #endif
 
 /// v8pp plugin filename suffix
 #if !defined(V8PP_PLUGIN_SUFFIX)
-#define V8PP_PLUGIN_SUFFIX "@V8PP_PLUGIN_SUFFIX@"
+#define V8PP_PLUGIN_SUFFIX ".dll"
 #endif
 
 #if defined(_MSC_VER)
@@ -41,7 +41,7 @@
 v8::Local<v8::Value> V8PP_PLUGIN_INIT_PROC_NAME(isolate)
 
 #ifndef V8PP_HEADER_ONLY
-#define V8PP_HEADER_ONLY @V8PP_HEADER_ONLY@
+#define V8PP_HEADER_ONLY 1
 #endif
 
 #if V8PP_HEADER_ONLY

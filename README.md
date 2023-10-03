@@ -1,6 +1,12 @@
-[![Build status](https://github.com/pmed/v8pp/actions/workflows/cmake.yml/badge.svg)](https://github.com/pmed/v8pp/actions/workflows/cmake.yml)
-[![NPM](https://img.shields.io/npm/v/v8pp.svg)](https://npmjs.com/package/v8pp)
-[![Join the chat at https://gitter.im/pmed/v8pp](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pmed/v8pp?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Fork NOTE
+
+This is a fork of [pmed/v8pp](https://github.com/pmed/v8pp) library version 2.1.0, with some additional fixes (for Electron JS addon compatibility).
+Fixes include so far:
+
+  * Possibility to use global static variable for class registry instead of holding pointer in the V8 data slot (via V8PP_DONT_USE_ISOLATE_DATA_SLOT), since there are no free V8 embedder data slots under Electron js (all are taken by Electron and Node.js).
+  * Reverting to old hardcoded prefix/suffix for generating type_id() class name, it was broken in 1.8.1 on WIN for complex/template class signatures.
+  * Hardcoded config.hpp (so this repo can be used intead of npm package directly)
+  * The V8PP_HEADER_ONLY 1 is hardcoded in the config.hpp (it's 0 by default in the upstream, however this contradicts to the Readme)
 
 # v8pp
 

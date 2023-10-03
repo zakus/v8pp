@@ -16,7 +16,7 @@ option(BUILD_TESTING "Build and run tests" OFF)
 option(BUILD_DOCUMENTATION "Build documentation" OFF)
 
 # Custom project options
-set(V8PP_HEADER_ONLY 0 CACHE BOOL "Header-only library")
+set(V8PP_HEADER_ONLY 1 CACHE BOOL "Header-only library")
 set(V8PP_ISOLATE_DATA_SLOT 0 CACHE STRING "v8::Isolate data slot number, used in v8pp for shared data")
 set(V8PP_PLUGIN_INIT_PROC_NAME "v8pp_module_init" CACHE STRING "v8pp plugin initialization procedure name")
 set(V8PP_PLUGIN_SUFFIX ${CMAKE_SHARED_MODULE_SUFFIX} CACHE STRING "v8pp plugin filename suffix")
